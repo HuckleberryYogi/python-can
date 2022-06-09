@@ -62,6 +62,8 @@ def main():
                        action='store_true')
     state_group.add_argument('--passive', help="Start the bus as passive.",
                        action='store_true')
+    
+    parser.add_argument('-s', '--serial_number', help='''specify SN''', default=None)
 
     # print help message when no arguments wre given
     if len(sys.argv) < 2:
@@ -94,6 +96,8 @@ def main():
         config["interface"] = results.interface
     if results.bitrate:
         config["bitrate"] = results.bitrate
+    if results.serial_number:
+        config['unique_hardware_id'] = parsed_args.serial_number
     bus = Bus(results.channel, **config)
 
     if results.active:
