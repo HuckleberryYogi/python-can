@@ -97,7 +97,7 @@ def main():
     if results.bitrate:
         config["bitrate"] = results.bitrate
     if results.serial_number:
-        config['unique_hardware_id'] = results.serial_number
+        config['UniqueHardwareId'] = results.serial_number
     bus = Bus(results.channel, **config)
 
     if results.active:
